@@ -1,35 +1,32 @@
- //outer function to initialize the login feature
- const createLoginTracker =(userInfo)=>{ 
-    let attemptCount = 0;  
-    const  maxAttempt =3; 
-    let locked=false;
+const createLoginTracker = (userInfo) => { 
+  let attemptCount = 0;  
+  const maxAttempt = 3; 
+  let locked = false;
 
-    //inner function to handle the login attempts
-    return(passwordAttempt) =>{
-if(locked){
-    return("Account locked due to too many failed  login attempts")  }
+  return (passwordAttempt) => {
 
-    if(passwordAttempt===userInfo.password){
-        return("Login  successful")}
- 
-    else{
-        attemptCount++ 
-if(attemptCount >=maxAttempt){ 
-    locked=true;
-}
-return`Attempt ${attemptCount} ; Login failed`;
-    } 
-     
+    if (locked) {
+      return "Account locked due to too many failed login attempts";
     }
-}
- 
+
+    if (passwordAttempt === userInfo.password) {
+      return "Login successful";
+    }
+
+    attemptCount++;
+
+    if (attemptCount >= maxAttempt) { 
+      locked = true;
+      return "Account locked due to too many failed login attempts";
+    }
+
+    return `Attempt ${attemptCount}: Login failed`;
+  };
+};
+
 module.exports = {
   ...(typeof createLoginTracker !== 'undefined' && { createLoginTracker })
 };
-
-
-const user={"username":"user1", "password":"password123"};
-const login=createLoginTracker(user); 
 
 
 /*console.log(login("skla"));// Attempt one :Login failed 
