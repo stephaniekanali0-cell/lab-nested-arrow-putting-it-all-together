@@ -28,7 +28,7 @@ module.exports = {
 };
 
 
-const user={"username":"user1", "password":"password123"};
+/*const user={"username":"user1", "password":"password123"};
 const login=createLoginTracker(user); 
 
 
@@ -40,4 +40,4 @@ console.log(login("kanash")) //login failed
  
 console.log(login("suraya123")) //login failed
  
-console.log(login("helenitah123")) //Acoount locked due to many attempts
+console.log(login("helenitah123")) //Acoount locked due to many attempts*/
